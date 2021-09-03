@@ -1,0 +1,20 @@
+mixin designer-card(img="img-broken.png", title="titulo", work="Puesto", text="Descripcion")
+   article.designer-card
+      img.designer-card__img(src=`assets/img/${img}`, alt="")
+      .designer-card__body
+         h4.designer-card__title.bold #{title}
+         p.designer-card__work #{work}
+         p.designer-card__text #{text}
+mixin package-card(title="titulo", price="0.00", url="#", ...features)
+   article.package-card
+      if (title == 'BASIC')
+         .package-card__header.bg-gray.bold #{title}
+      if (title == 'PRO')
+         .package-card__header.bg-red.bold #{title}
+      ul.package-card__list
+         each feature in features
+            li.package-card__list-item #{feature}
+      .package-card__footer
+         p.package-card__price $#{price}
+            span per room
+         a.btn.btn-white(href=url) Sign Up

@@ -1,0 +1,128 @@
+include ./mixins
+doctype html
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(http-equiv="X-UA-Compatible", content="IE=edge")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+      //- fonts
+      link(rel="preconnect" href="https://fonts.googleapis.com")
+      link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+      link(href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet")
+      //- custom css
+      link(rel="stylesheet", href="css/main.css")
+      title Interior Design
+   body
+      header.header.flex.flex-ai-c.toggle-navbar
+         .navigation__icon-box.d-lg-none.toggle-navbar
+            span.navigation__icon.toggle-navbar
+         p.brand.d-lg-none Company Name
+
+         .navigation-menu.toggle-navbar
+            nav.navigation
+               button.btn.btn-red.btn-block.d-lg-none.bold.toggle-navbar Close Menu
+               p.brand Company Name
+               ul.navigation__nav
+                  li.navigation__item
+                     a.navigation__link(href="#") Home
+                  li.navigation__item
+                     a.navigation__link(href="#") Showcase
+                  li.navigation__item
+                     a.navigation__link(href="#") Services
+                  li.navigation__item
+                     a.navigation__link(href="#") Designers
+                  li.navigation__item
+                     a.navigation__link(href="#") Packages
+                  li.navigation__item
+                     a.navigation__link(href="#") Contact
+      main.main
+         .container-fluid
+            h1.heading.heading-1 Interior Design
+            section.showcase.section
+               h2.heading.heading-2.color-red Showcase.
+               .row.jc-sb
+               .showcase__grid.flex-md.flex-md-wrap
+                  a.showcase__link(href="#") 
+                     img.showcase__link-img(src="assets/img/kitchenconcrete.jpg", alt="")
+                  a.showcase__link(href="#") 
+                     img.showcase__link-img(src="assets/img/atrium.jpg", alt="")
+                  a.showcase__link(href="#") 
+                     img.showcase__link-img(src="assets/img/livingroom.jpg", alt="")
+                  a.showcase__link(href="#") 
+                     img.showcase__link-img(src="assets/img/bedroom.jpg", alt="")
+                  a.showcase__link(href="#") 
+                     img.showcase__link-img(src="assets/img/diningroom.jpg", alt="")
+                  a.showcase__link(href="#") 
+                     img.showcase__link-img(src="assets/img/livingroom2.jpg", alt="")
+            section.services.section
+               h2.heading.heading-2.color-red Services
+               p We are a interior design service that focus on what's best for your home and what's best for you!
+               br
+               p Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            section.designers.section
+               h2.heading.heading-2.color-red Designers
+               p The best team in the world.
+               br
+               p We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+               br
+               p.bold Our designers are thoughtfully chosen:
+               .designers__grid.flex-md.flex-md-wrap
+                  +designer-card(
+                     'team2.jpg'
+                     , 'John Doe'
+                     , 'CEO & Founder' 
+                     , 'Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.'
+                     )
+                  +designer-card(
+                     'team1.jpg'
+                     , 'Jane Doe'
+                     , 'Designer' 
+                     , 'Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.'
+                     )
+                  +designer-card(
+                     'team3.jpg'
+                     , 'Mike Ross'
+                     , 'Architect' 
+                     , 'Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.'
+                     )
+            section.packages
+               h2.heading.heading-2.color-red Packages.
+               p Some text our prices. Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+               .packages__grid.flex-md
+                  +package-card(
+                     'BASIC'
+                     ,'199'
+                     ,'#'
+                     , 'Floorplanning'
+                     ,'10 hours support'
+                     ,'Photography'
+                     ,'20% furniture discount'
+                     ,'Good deals'
+                  )
+                  +package-card(
+                     'PRO'
+                     ,'249'
+                     ,'#'
+                     , 'Floorplanning'
+                     ,'50 hours support'
+                     ,'Photography'
+                     ,'50% furniture discount'
+                     ,'Great deals'
+                  )
+            section.contact.section
+               h2.heading.heading-2.color-red Contact.
+               p Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!
+               form.form
+                  .form__group
+                     label.form__label(for="inputName") Name
+                     input.form__control(id="inputName" type="text")
+                  .form__group
+                     label.form__label(for="inputEmail") Email
+                     input.form__control(id="inputEmail" type="email")
+                  .form__group
+                     label.form__label(for="inputMessage") Message
+                     textarea.form__control(id="inputMessage" name="") 
+                  button.btn.btn-red.btn-block(type="submit") Send Message
+      footer.footer
+         p.copyright All rights reserved &copy;
+      script(src="js/app.js")
